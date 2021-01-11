@@ -64,6 +64,7 @@
 		text-align: left;
 		padding: 10px 0px;
 		color: grey;
+		background-color: #fff;
 		p{
 			font-weight: 600;
 			padding-left: 15px;
@@ -91,46 +92,136 @@
 		display: block;
 	}
 }
-
+// 第一層
 .rk-navbar{
 	display: flex;
-	height: 36px;
-	margin: 15px 0;
-	li{
-		a{
-			text-decoration: none;
-			color: grey;
-			display: block;
-			padding-right: 35px;
-			padding-bottom: 10px;
-			&:hover{
-				color: $primary;
-			}
+	margin: 15px 0 0 0;
+	a{
+		text-decoration: none;
+		color: rgba(0,0,0,.7);
+		display: block;
+		padding-right: 35px;
+		padding-bottom: 10px;
+		&:hover{
+			color: $primary;
 		}
-		&:last-child{
-			a{
-				padding-right: 0;
+	}
+	li{
+		&:first-child ul{
+			height: 500px;
+		}
+		&:hover > ul{
+			display: block;
+			li{
+				&:hover div > ul {
+					height: 500px;
+					display: inline-block;
+				}
+				&:hover > a {
+					background-color: rgba(0,159,151,.1);
+					color: $primary;
+				}
+				&:hover .newlyLaunched a{
+					background-color: #fff;
+				}
 			}
 		}
 		ul{
 			display: none;
 			position: absolute;
-			border: 1px solid rgba(0,0,0,.2);
 			background-color: #fff;
+			width: 250px;
+			border: 1px solid rgba(0,0,0,.2);
 			li{
+				.categories,.featured,.newlyLaunched{
+					position: absolute;
+					top: -1px;
+					background-color: #fff;
+				}
+			}
+			a,p{
+				padding: 10px 15px;
+				font-size: 0.85rem;
+			}
+			p{
+				color: grey;
+				font-weight: bold;
+
+			}
+			.categories{
+				left: 100%;
+				ul{
+					width: 250px;
+				}
+			}
+			.featured{
+				left: 200%;
+				ul{
+					width: 250px;
+					border-left: none;
+				}
+			}
+			.newlyLaunched{
+				left: 300%;
+				ul{
+					width: 365px;
+					border-left: none;
+				}
 				a{
-					display: block;
-					padding: 10px 15px;
-					font-size: 0.85rem;
+					text-align: center;
+					padding: 0;
 					&:hover{
-						background-color:rgba(0,159,151,.1);
+						background-color: #fff;
 					}
+				}
+				&:hover{
+					background-color: #fff;
+				}
+			}
+			.newlyProduct{
+				width: 350px;
+				margin: 0 auto;
+				padding: 0 15px;
+				img{
+					margin-top: 15px;
+					width: 100%;
+					max-width: 500px;
+					object-fit: cover;
+				}
+				span{
+					&::before{
+						content: '';
+						display: block;
+						border-top: 2px solid $primary;
+						margin-top: 25px;
+					}
+				}
+				&:hover .product-btn{
+					background-color: $primary;
+					color: #fff;
+				}
+				&:hover span{
+					color: rgba(0,0,0,.7);
+				}
+				.product-btn{
+					margin-top: 5px;
+					font-size: 14px;
 				}
 			}
 		}
-		&:hover > ul{
+	}
+	.rocket{
+		a{
 			display: block;
+			background: linear-gradient(135deg, #01c0c4 0%, #7aaaee 100%);
+			border-radius: 5px;
+			padding: 0 10px;
+			font-size: 12px;
+			color: #fff;
+			&:hover{
+				background: linear-gradient(135deg, #01c0c4 100%, #7aaaee 0%);
+				color: #fff;
+			}
 		}
-
 	}
 }
