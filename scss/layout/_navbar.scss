@@ -3,7 +3,6 @@
   display: flex;
 	justify-content: space-between;
 	align-items: center;
-	// height: 56px;
 	.brand-logo{
 		text-decoration: none;
 		color: green;
@@ -11,7 +10,7 @@
 			color: $primary;
 		}
 		i{
-				font-size: 48px;
+			font-size: 48px;
 		}
 	}
 }
@@ -65,6 +64,7 @@
 		padding: 10px 0px;
 		color: grey;
 		background-color: #fff;
+		z-index: 999;
 		p{
 			font-weight: 600;
 			padding-left: 15px;
@@ -102,16 +102,17 @@
 		display: block;
 		padding-right: 35px;
 		padding-bottom: 10px;
-		&:hover{
-			color: $primary;
-		}
 	}
 	li{
 		&:first-child ul{
 			height: 500px;
 		}
+		&:hover > a{
+			color: $primary;
+		}
 		&:hover > ul{
 			display: block;
+			z-index: 999;
 			li{
 				&:hover div > ul {
 					height: 500px;
@@ -140,7 +141,7 @@
 				}
 			}
 			a,p{
-				padding: 10px 15px;
+				padding: 8px 16px;
 				font-size: 0.85rem;
 			}
 			p{
