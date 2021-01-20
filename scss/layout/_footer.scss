@@ -1,0 +1,33 @@
+.footer-copyright{
+    background-color: #EBEBEB;
+    > div{
+        font-size: 13px;
+        padding: 0 35px;
+    }
+    p,a{
+        color: #838383;
+    }
+    p{
+        margin: 20px 0;;
+    }
+    a{
+        text-decoration: none;
+        &:hover{
+            color: #414141;
+        }
+    }
+    .community{
+        display: flex;
+        flex-wrap: wrap;
+        font-size: 46px;
+        li{
+            margin: 10px 35px 10px 0px;
+        }
+        a{
+            color: #3E3E3E;
+            &:hover{
+                color: #00ff00;
+            }
+        }
+    }
+}

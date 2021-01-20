@@ -1,22 +1,51 @@
-;(function () {
+; (function () {
 	// carousel
-	$(document).ready(function(){
+	$(document).ready(function () {
 		$('.slider').slick({
 			slidesToShow: 3,
-			slidesToScroll: 3,
 			focusOnSelect: true,
 			swipeToSlide: true,
+			infinite: false,
+			arrows: true,
+		});
+		$('.product-type li').click(function () {
+			$(this).find('button').addClass('active');
+			$(this).siblings().find('button').removeClass('active');
+			let text = $(this).text().toLowerCase();
+			switch (text) {
+				case 'ram':
+					$('.ram').addClass('open');
+					$('.graphics').removeClass('open');
+					$('.motherboard').removeClass('open');
+					break;
+				case 'graphics':
+					$('.graphics').addClass('open');
+					$('.ram').removeClass('open');
+					$('.motherboard').removeClass('open');
+					break;
+				case 'motherboard':
+					$('.motherboard').addClass('open');
+					$('.ram').removeClass('open');
+					$('.graphics').removeClass('open');
+					break;
+				default:
+					console.error('Error!');
+			}
 		});
 	});
 	// main.js
-	const locale = document.querySelectorAll('.language ul li a'); // 語言選擇
+	const locale = document.querySelectorAll('.language li a'); // 語言選擇
 	const languageText = document.querySelector('.language .text'); // 語言選擇
 	const featureList = document.querySelectorAll('.features a'); // feature 動畫
 	const panels = document.querySelectorAll('.panel h5');
-
-	let langNow = languageText.text.trim();
+	const productObj = {
+		ram: [],
+		graphics: [],
+		motherboard: [],
+	}
 	locale.forEach(lang => {
-		let langChoose = lang.outerText;
+		let langNow = languageText.text.trim();
+		let langChoose = lang.textContent;
 		if (langNow === langChoose) {
 			lang.classList.add('active');
 		}
@@ -35,13 +64,8 @@
 		panel.addEventListener('click', listToggle);
 	});
 
-	function slideToggle(e) {
-		e.preventDefault();
-		console.log(virtualEl);
-	};
-
 	function listToggle() {
 		this.nextElementSibling.classList.toggle('active');
 		console.dir(this.nextElementSibling)
-	}
+	};
 })();

@@ -48,7 +48,7 @@
 	}
 }
 .introduce{
-	padding-left: 35px;
+	padding: 0 35px;
 	p{
 		margin-top: 20px;
 		color: #464646;
@@ -77,13 +77,18 @@
 .features{
 	background-color: $bg-grey;
 	padding: 30px 0;
+	> div{
+		padding: 0 35px;
+	}
 	h2{
 		font-size: 40px;
 		color: $secondary;
 		margin-bottom: 30px;
 	}
 	li{
-		margin-bottom: 10px;
+		&:not(:last-child){
+			border-bottom: 5px solid #fff;
+		}
 	}
 	a{
 		text-align: center;
@@ -175,10 +180,11 @@
 	  }
 }
 .product{
+	padding: 0 35px;
 	h2{
 		font-size: 40px;
-    color: #0071BC;
-    margin: 50px 0;
+    	color: #0071BC;
+    	margin: 50px 0;
 	}
 	h3{
 		font-size: 26px;
@@ -187,6 +193,50 @@
 		padding-bottom: 10px;
 		font-weight: 400;
 		color: #464646;
+	}
+	.product-type{
+		margin-top: 15px;
+		display: flex;
+		button{
+			border-radius: 10px;
+			color: #fff;
+			border-color: #FFF;
+			background-color: #C8C8C8;
+			width: 200px;
+			height: 50px;
+			color: #464646;
+		}
+		li{
+			margin-right: 5px;
+		}
+		.active{
+			color: #fff;
+			background-color: #0071BC;
+			position: relative;
+			&::after{
+				content: '';
+				display: block;
+				width: 30px;
+				height: 20px;
+				position: absolute;
+				top: 110%;
+				left: 50%;
+				transform: translateX(-50%);
+				border-left: 15px solid #fff;
+				border-right: 15px solid #fff;
+				border-top: 15px solid #0071BC;
+			}
+		}
+	}
+	.ram,.graphics,.motherboard{
+		opacity: 0;
+		height: 0;
+		overflow: hidden;
+	}
+	.ram.open,.graphics.open,.motherboard.open{
+		opacity: 1;
+		height: auto;
+		overflow: visible;
 	}
 }
 // slider 
@@ -204,6 +254,7 @@
 			font-size: 18px;
 			text-align: center;
 			margin: 10px 0;
+			color: #464646;
 		}
 		li{
 			list-style-type: square;
@@ -227,7 +278,10 @@
 		margin: 0 auto;
 	}
 }
+.slick-track{
+	margin-left: 0;
+}
 .slick-prev:before,
 .slick-next:before {
-	color: black;
+	color: #0071BC;
 }
