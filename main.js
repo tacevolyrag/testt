@@ -7,6 +7,22 @@
 			swipeToSlide: true,
 			infinite: false,
 			arrows: true,
+			responsive: [
+				{
+				  breakpoint: 1024,
+				  settings: {
+					slidesToShow: 2,
+				  }
+				},
+				{
+				  breakpoint: 768,
+				  settings: {
+					arrows: false,
+					slidesToShow: 1,
+					dots: true,
+				  }
+				}
+			  ]
 		});
 		$('.product-type li').click(function () {
 			$(this).find('button').addClass('active');
@@ -31,6 +47,15 @@
 				default:
 					console.error('Error!');
 			}
+		});
+		$('.arrow-down').click(function(event){
+			event.preventDefault();
+			$(this).toggleClass('arrow-animation');
+			$('.anchor').toggleClass('open');
+		});
+		$('.anchor a').click(function(){
+			$('.anchor').removeClass('open');
+			$('.arrow-down').removeClass('arrow-animation');
 		});
 	});
 	// main.js
@@ -68,4 +93,12 @@
 		this.nextElementSibling.classList.toggle('active');
 		console.dir(this.nextElementSibling)
 	};
+	window.addEventListener('scroll', function(e){
+		let windowTop = window.scrollY;
+		if (windowTop >= 100) {
+			$('.title-link').addClass('fixed');
+		} else{
+			$('.title-link').removeClass('fixed');
+		}
+	});
 })();

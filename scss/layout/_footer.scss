@@ -31,3 +31,25 @@
         }
     }
 }
+@media screen and (max-width: $phone-media){
+    .footer-copyright{
+        .row{
+            p{
+                display: none;
+            }
+            div{
+                &:not(:last-child){
+                    display: none;
+                }
+            }
+        }
+        .community{
+            padding-top: 15px;
+            justify-content: space-between;
+            align-items: center;
+            li{
+                margin: 0;
+            }
+        }
+    }
+}
