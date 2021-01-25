@@ -1,4 +1,3 @@
-
 .brand{
   display: flex;
 	justify-content: space-between;
@@ -14,8 +13,10 @@
 		}
 	}
 }
+.searchLanguage{
+	display: flex;
+}
 .search{
-	display: inline-block;
   a{
 		color: grey;
 		font-size: 24px;
@@ -91,6 +92,9 @@
 	&:hover ul{
 		display: block;
 	}
+}
+.hamburger-menu{
+	display: none;
 }
 // 第一層
 .rk-navbar{
@@ -223,6 +227,119 @@
 				background: linear-gradient(135deg, #01c0c4 100%, #7aaaee 0%);
 				color: #fff;
 			}
+		}
+	}
+}
+@media screen and (max-width: $table-media) {
+	.rk-navbar.open{
+		display: block;
+	}
+	.rk-navbar{
+		display: none;
+		flex-direction: column;
+		min-height: 100vh;
+		a{
+			font-size: 20px;
+			border-bottom: 1px solid #ececec;
+			padding-right: 0;
+			padding-top: 10px;
+			padding-bottom: 10px;
+		}
+		.rocket{
+			a{
+				background: transparent;
+				color: $primary;
+				font-size: 20px;
+				padding: 10px 0 10px 0;
+				&:hover{
+					background:transparent;
+					color: $primary;
+				}
+			}
+		}
+		li{
+			&:first-child ul{
+				height: auto;
+			}
+			&:hover > ul{
+				position: static;
+				display: none;
+				width: auto;
+				border: none;
+			}
+			ul{
+				position: static;
+				width: auto;
+				border: none;
+				a{
+					font-size: 16px;
+				}
+				li{
+					.categories{
+						position: static;
+						display: none;
+						ul{
+							background-color: #F5F5F5;
+							width: 100%;
+						}
+					}
+					.categories.open{
+						display: block;
+					}
+				}
+			}
+			ul.open{
+				display: block;
+			}
+		}
+	}
+	.categories{
+		position: static;
+		ul{
+			background-color: #F5F5F5;
+		}
+	}
+	.featured,.newlyLaunched{
+		display: none;
+	}
+	.hamburger-menu{
+		display: block;
+		margin-left: 20px;
+		margin-right: 2px;
+	}
+	.hamburger-toggler{
+		display: block;
+		width: 20px;
+		height: 20px;
+		position: relative;
+		top: 6px;
+		cursor: pointer;
+		span{
+			display: block;
+			height: 2px;
+			background-color: grey;
+			position: relative;
+			top: 0;
+			transition: transform .2s ease-in-out, top .2s ease-in-out .2s;
+			&:nth-child(2),&:nth-child(3) {
+				margin-top: 10px;
+			}
+		}
+	}
+	#toggler{
+		display: none;
+		&:checked + label .hamburger-toggler span:nth-child(1){
+			transform: rotate(45deg);
+			top: 6px;
+			transition: top .2s ease-in-out, transform .2s ease-in-out .2s;
+		}
+		&:checked + label .hamburger-toggler span:nth-child(2){
+			transform: rotate(-45deg);
+			top: -6px;
+			transition: top .2s ease-in-out, transform .2s ease-in-out .2s;
+		}
+		&:checked ~ .rk-navbar{
+			display: block;
 		}
 	}
 }

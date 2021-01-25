@@ -57,6 +57,26 @@
 			$('.anchor').removeClass('open');
 			$('.arrow-down').removeClass('arrow-animation');
 		});
+		$('#toggler').click(function() {
+			if($(this).prop('checked')){
+				$('.rk-navbar').addClass('open');
+				$('.rk-navbar > li > a').click(function(e){
+					$(this).siblings().toggleClass('open');
+				})
+				$('.rk-navbar ul > li > a').click(function(){
+					$('.categories').toggleClass('open');
+				})
+			} else{
+				$('.rk-navbar').removeClass('open');
+				$('.rk-navbar > li > a').click(function(e){
+					$(this).siblings().toggleClass('open');
+				})
+				$('.rk-navbar ul > li > a').click(function(){
+					$('.categories').toggleClass('open');
+				})
+			}
+		})
+		
 	});
 	// main.js
 	const locale = document.querySelectorAll('.language li a'); // 語言選擇
