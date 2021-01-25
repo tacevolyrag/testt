@@ -64,7 +64,7 @@
 					$(this).siblings().toggleClass('open');
 				})
 				$('.rk-navbar ul > li > a').click(function(){
-					$('.categories').toggleClass('open');
+					$(this).siblings().toggleClass('open');
 				})
 			} else{
 				$('.rk-navbar').removeClass('open');
@@ -72,7 +72,7 @@
 					$(this).siblings().toggleClass('open');
 				})
 				$('.rk-navbar ul > li > a').click(function(){
-					$('.categories').toggleClass('open');
+					$(this).siblings().toggleClass('open');
 				})
 			}
 		})
