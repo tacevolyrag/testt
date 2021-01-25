@@ -17,12 +17,12 @@
 	display: flex;
 }
 .search{
-  a{
-		color: grey;
-		font-size: 24px;
-		transition: .3s;
-		&:hover{
-			color: $primary;
+  	a{
+	color: grey;
+	font-size: 24px;
+	transition: .3s;
+	&:hover{
+		color: $primary;
 		}
 	}
 	input{
@@ -231,6 +231,14 @@
 	}
 }
 @media screen and (max-width: $table-media) {
+	.search{
+		input{
+			&:focus{
+				width: 7rem;
+				outline: none;
+			}
+		}
+	}
 	.rk-navbar.open{
 		display: block;
 	}
